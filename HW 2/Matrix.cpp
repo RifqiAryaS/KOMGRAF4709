@@ -111,6 +111,7 @@ int main()
     int matrix1[2][2] = {{1, 3}, {2, 4}};
     int matrix2[2][2] = {{1, 1}, {0, 0}};
 
+    pertambahan(matrix1, matrix2);
     // perkurangan(matrix1, matrix2);
     // perkalianInput(matrix1);
     perkalian(matrix1, matrix2);
