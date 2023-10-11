@@ -43,11 +43,9 @@ void display()
 
     float x1, y1, x2, y2;
 
-    // Prompt the user for input
     std::cout << "Masukkan koordinat (x1 y1 x2 y2): ";
     std::cin >> x1 >> y1 >> x2 >> y2;
 
-    // Call the DDA line drawing function with user-provided endpoints
     drawLineDDA(x1, y1, x2, y2);
 
     glFlush();
