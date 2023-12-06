@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -47,8 +48,45 @@ void rotate()
 {
 }
 
-void scale()
+void scale(int x, int y, int x1, int y1)
 {
+    int matrix1[3][3] = {{x1, 0, 0}, {0, y1, 0}, {0, 0, 1}};
+
+    int matrix2[3] = {x, y, 1};
+
+    int hasil[3] = {0, 0, 0};
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            hasil[i] += matrix1[i][j] * matrix2[j];
+        }
+    }
+
+    cout << "Matrix Skala\n";
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout << matrix1[i][j];
+        }
+        cout << "\n";
+    }
+
+    cout << "\nMatrix Awal\n";
+
+    for (int i = 0; i < 3; ++i)
+    {
+        cout << matrix2[i] << endl;
+    }
+
+    cout << "\nMatrix Hasil\n";
+    for (int i = 0; i < 3; ++i)
+    {
+        cout << hasil[i] << endl;
+    }
 }
 
 int main()
@@ -60,12 +98,12 @@ int main()
     cout << "Masukkan nilai awal y : ";
     cin >> y;
 
-    cout << "Masukkan nilai Translasi x : ";
+    cout << "Masukkan nilai x1 : ";
     cin >> x1;
-    cout << "Masukkan nilai Translasi y : ";
+    cout << "Masukkan nilai y1 : ";
     cin >> y1;
 
-    transition(x, y, x1, y1);
+    scale(x, y, x1, y1);
 
     return 0;
 }
