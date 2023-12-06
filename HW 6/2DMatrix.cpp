@@ -3,8 +3,10 @@
 
 using namespace std;
 
-void transition(int x, int y, int x1, int y1)
+void transition()
 {
+    int x, y, x1, y1;
+
     cout << "Masukkan nilai awal x : ";
     cin >> x;
     cout << "Masukkan nilai awal y : ";
@@ -54,8 +56,15 @@ void transition(int x, int y, int x1, int y1)
     }
 }
 
-void rotate(int x, int y)
+void rotate()
 {
+    int x, y;
+
+    cout << "Masukkan nilai awal x : ";
+    cin >> x;
+    cout << "Masukkan nilai awal y : ";
+    cin >> y;
+
     double teta;
     cout << "Masukan nilai teta: ";
     cin >> teta;
@@ -101,8 +110,10 @@ void rotate(int x, int y)
     }
 }
 
-void scale(int x, int y, int x1, int y1)
+void scale()
 {
+    int x, y, x1, y1;
+
     cout << "Masukkan nilai awal x : ";
     cin >> x;
     cout << "Masukkan nilai awal y : ";
@@ -154,19 +165,50 @@ void scale(int x, int y, int x1, int y1)
 
 int main()
 {
-    int x, y, x1, y1;
 
-    cout << "Masukkan nilai awal x : ";
-    cin >> x;
-    cout << "Masukkan nilai awal y : ";
-    cin >> y;
+    // cout << "Masukkan nilai awal x : ";
+    // cin >> x;
+    // cout << "Masukkan nilai awal y : ";
+    // cin >> y;
 
-    cout << "Masukkan nilai x1 : ";
-    cin >> x1;
-    cout << "Masukkan nilai y1 : ";
-    cin >> y1;
+    // cout << "Masukkan nilai x1 : ";
+    // cin >> x1;
+    // cout << "Masukkan nilai y1 : ";
+    // cin >> y1;
 
-    rotate(x, y);
+    int pilih;
+    char pilihan;
+
+menu:
+    cout << "Silahkan pilih menu : " << endl;
+    cout << "1. transition" << endl;
+    cout << "2. rotate" << endl;
+    cout << "3. scale" << endl;
+    cout << "Pilihanmu (1-3) = ";
+    cin >> pilih;
+
+    switch (pilih)
+    {
+    case 1:
+        transition();
+        break;
+    case 2:
+        rotate();
+        break;
+    case 3:
+        scale();
+        break;
+    default:
+        cout << "Pilihan tidak valid. Coba lagi." << endl;
+    }
+
+    cout << "Ingin coba lagi (y/t)?" << endl;
+    cin >> pilihan;
+
+    if (pilihan == 'y')
+    {
+        goto menu;
+    }
 
     return 0;
 }
