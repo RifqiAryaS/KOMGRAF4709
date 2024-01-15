@@ -1,3 +1,4 @@
+#include <GL/freeglut.h>
 #include <iostream>
 
 // Ukuran Window
@@ -106,9 +107,8 @@ void cohenSutherlandClip(float x1, float y1, float x2, float y2)
     std::cout << "Clipped line: (" << x1 << ", " << y1 << ") to (" << x2 << ", " << y2 << ")" << std::endl;
 }
 
-int main()
-{
-    float x1, y1, x2, y2;
+void display() {
+        float x1, y1, x2, y2;
 
     std::cout << "Masukkan nilai x1 : ";
     std::cin >> x1;
@@ -118,8 +118,40 @@ int main()
     std::cin >> x2;
     std::cout << "Masukkan nilai y2 : ";
     std::cin >> y2;
-
     cohenSutherlandClip(x1, y1, x2, y2);
+
+    // set warna background ke hitam
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+
+    // Gambar garis
+    glBegin(GL_QUADS);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.0f);;
+    glVertex2f(LEFT,BOTTOM);
+    glVertex2f(RIGHT,BOTTOM);
+    glVertex2f(RIGHT,TOP);
+    glVertex2f(LEFT,TOP);
+    glEnd();
+
+    glBegin(GL_LINES);
+    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);;
+    glVertex2f(x1,y1);
+    glVertex2f(x2,y2);
+    glEnd();
+
+    glFlush();
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitWindowSize(640, 500);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("Translation");
+
+    glutDisplayFunc(display);
+    glutMainLoop();
 
     return 0;
 }

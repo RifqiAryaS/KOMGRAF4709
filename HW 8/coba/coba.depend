@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1704957969 source:c:\users\overm\desktop\tgs\3d\translation\coba\main.cpp
+	<windows.h>
+	<GL/freeglut.h>
+
